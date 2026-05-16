@@ -1,18 +1,19 @@
 package com.drivingschool.model;
 
-public class Schedule {
-    private int scheduleId;
+public class Review {
+    private int reviewId;
     private int studentId;
     private int instructorId;
-    private String sessionDate;
-    private String sessionTime;
-    private String status;
+    private int rating;
+    private String comment;
+    private String reviewDate;
 
+    // Convenience fields populated from JOINs (not stored in DB)
     private String studentName;
     private String instructorName;
 
-    public int getScheduleId() { return scheduleId; }
-    public void setScheduleId(int scheduleId) { this.scheduleId = scheduleId; }
+    public int getReviewId() { return reviewId; }
+    public void setReviewId(int reviewId) { this.reviewId = reviewId; }
 
     public int getStudentId() { return studentId; }
     public void setStudentId(int studentId) { this.studentId = studentId; }
@@ -20,14 +21,14 @@ public class Schedule {
     public int getInstructorId() { return instructorId; }
     public void setInstructorId(int instructorId) { this.instructorId = instructorId; }
 
-    public String getSessionDate() { return sessionDate; }
-    public void setSessionDate(String sessionDate) { this.sessionDate = sessionDate; }
+    public int getRating() { return rating; }
+    public void setRating(int rating) { this.rating = rating; }
 
-    public String getSessionTime() { return sessionTime; }
-    public void setSessionTime(String sessionTime) { this.sessionTime = sessionTime; }
+    public String getComment() { return comment; }
+    public void setComment(String comment) { this.comment = comment; }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public String getReviewDate() { return reviewDate; }
+    public void setReviewDate(String reviewDate) { this.reviewDate = reviewDate; }
 
     public String getStudentName() { return studentName; }
     public void setStudentName(String studentName) { this.studentName = studentName; }
@@ -35,6 +36,5 @@ public class Schedule {
     public String getInstructorName() { return instructorName; }
     public void setInstructorName(String instructorName) { this.instructorName = instructorName; }
 }
-
 
 

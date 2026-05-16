@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/ScheduleServlet")
 public class ScheduleServlet extends HttpServlet {
@@ -23,6 +24,17 @@ public class ScheduleServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("role") == null) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
+        String role = (String) session.getAttribute("role");
+        if (!"ADMIN".equals(role) && !"INSTRUCTOR".equals(role)) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
+
         String action = request.getParameter("action");
         if ("updateStatus".equals(action)) {
             int scheduleId = Integer.parseInt(request.getParameter("id"));
@@ -44,6 +56,12 @@ public class ScheduleServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session == null || !"ADMIN".equals(session.getAttribute("role"))) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
+
         String action = request.getParameter("action");
 
         if ("add".equals(action)) {
@@ -65,3 +83,5 @@ public class ScheduleServlet extends HttpServlet {
         }
     }
 }
+
+

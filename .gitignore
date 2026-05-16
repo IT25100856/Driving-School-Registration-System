@@ -40,4 +40,4 @@ build/
 
 ### Custom Project Files ###
 src/main/java/com/drivingschool/util/DBConnection.java
-*.py
+generate_git_history.py

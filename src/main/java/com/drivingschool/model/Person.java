@@ -1,5 +1,10 @@
 package com.drivingschool.model;
 
+/**
+ * VIVA POINT: Abstraction.
+ * This class is 'abstract' because a generic Person should never be instantiated.
+ * It must be a Student, Instructor, or Admin.
+ */
 public abstract class Person {
     private String id;
     private String fullName;
@@ -32,6 +37,8 @@ public abstract class Person {
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
 
+        // VIVA POINT: Polymorphism. This abstract method forces subclasses (Student, Instructor, Admin) 
+    // to provide their own specific implementation of this method.
     public abstract String getRoleDescription();
 }
 
