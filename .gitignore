@@ -5,13 +5,13 @@ target/
 .kotlin
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
+.idea/
 *.iws
 *.iml
 *.ipr
+
+### Smart Tomcat ###
+.smarttomcat/
 
 ### Eclipse ###
 .apt_generated
@@ -40,4 +40,4 @@ build/
 
 ### Custom Project Files ###
 src/main/java/com/drivingschool/util/DBConnection.java
-generate_git_history.py
+*.py
